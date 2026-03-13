@@ -177,6 +177,11 @@
             gap: 4px;
             border-bottom: 1px solid var(--border);
             position: relative;
+            overflow-x: auto;
+            scrollbar-width: none; /* Firefox */
+        }
+        .nav-tabs::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
         }
         .nav-tab {
             padding: 10px 20px;
@@ -233,6 +238,23 @@
         @media (max-width: 900px) {
             .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
             .header-stats { flex-wrap: wrap; gap: 16px; }
+            .theme-toggle {
+                top: 24px;
+                right: 24px;
+                bottom: auto;
+            }
+            .header h1 {
+                font-size: 22px;
+                padding-right: 40px; /* space for the toggle */
+                line-height: 1.3;
+            }
+            .nav-tabs {
+                padding: 16px 16px 0;
+            }
+            .nav-tab {
+                white-space: nowrap;
+                padding: 10px 16px;
+            }
         }
 
         /* ── CARDS ── */
