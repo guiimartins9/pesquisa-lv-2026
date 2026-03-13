@@ -72,6 +72,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { overflow-x: hidden; }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
@@ -108,6 +109,15 @@
             padding: 0 24px;
             position: relative;
             z-index: 1;
+        }
+        .header-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .header-top-row-left {
+            flex: 1;
+            min-width: 0;
         }
         .header-badge {
             display: inline-flex;
@@ -174,14 +184,9 @@
             margin: 0 auto;
             padding: 16px 24px 0;
             display: flex;
+            flex-wrap: wrap;
             gap: 4px;
             border-bottom: 1px solid var(--border);
-            position: relative;
-            overflow-x: auto;
-            scrollbar-width: none; /* Firefox */
-        }
-        .nav-tabs::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
         }
         .nav-tab {
             padding: 10px 20px;
@@ -194,6 +199,7 @@
             border-bottom: 2px solid transparent;
             transition: all .2s;
             font-family: inherit;
+            white-space: nowrap;
         }
         .nav-tab:hover { color: var(--text-secondary); }
         .nav-tab.active {
@@ -201,14 +207,11 @@
             border-bottom-color: var(--accent-blue);
         }
         .theme-toggle {
-            position: absolute;
-            right: 24px;
-            bottom: 8px;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             color: var(--text-primary);
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -216,6 +219,7 @@
             cursor: pointer;
             transition: all .2s;
             font-size: 16px;
+            flex-shrink: 0;
         }
         .theme-toggle:hover {
             background: var(--bg-card-hover);
@@ -237,24 +241,65 @@
 
         @media (max-width: 900px) {
             .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-            .header-stats { flex-wrap: wrap; gap: 16px; }
-            .theme-toggle {
-                top: 24px;
-                right: 24px;
-                bottom: auto;
-            }
-            .header h1 {
-                font-size: 22px;
-                padding-right: 40px; /* space for the toggle */
-                line-height: 1.3;
-            }
-            .nav-tabs {
-                padding: 16px 16px 0;
-            }
-            .nav-tab {
-                white-space: nowrap;
-                padding: 10px 16px;
-            }
+        }
+
+        @media (max-width: 640px) {
+            /* Header */
+            .header { padding: 24px 0 20px; }
+            .header-inner { padding: 0 16px; }
+            .header h1 { font-size: 18px; line-height: 1.4; letter-spacing: -.3px; }
+            .header p { font-size: 12px; }
+            .header-badge { font-size: 11px; padding: 4px 10px; }
+            .header-stats { flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+            .header-stat-value { font-size: 20px; }
+            .header-stat-label { font-size: 10px; }
+
+            /* Theme toggle in header */
+            .theme-toggle { width: 32px; height: 32px; font-size: 14px; margin-top: 2px; }
+
+            /* Navigation Tabs */
+            .nav-tabs { padding: 12px 16px 0; gap: 2px; }
+            .nav-tab { padding: 8px 12px; font-size: 12px; }
+
+            /* Container */
+            .container { padding: 16px; }
+
+            /* Cards */
+            .card { padding: 16px; border-radius: 12px; }
+            .card-value { font-size: 28px; }
+            .card-title { font-size: 11px; margin-bottom: 8px; }
+            .card-sub { font-size: 12px; }
+            .kpi-icon { width: 38px; height: 38px; font-size: 18px; border-radius: 10px; }
+            .kpi-card { gap: 12px; }
+
+            /* Charts */
+            .chart-wrap canvas { max-height: 220px; }
+
+            /* NPS */
+            .nps-score { font-size: 52px; }
+            .nps-label { font-size: 11px; }
+
+            /* Bars */
+            .bar-label { font-size: 12px; }
+
+            /* Section titles */
+            .section-title { font-size: 16px; }
+
+            /* Testimonials */
+            .testimonial { padding: 14px 16px; }
+            .testimonial-text { font-size: 13px; }
+
+            /* Insight boxes */
+            .insight-box { padding: 16px; }
+            .insight-box h3 { font-size: 13px; }
+            .insight-box p { font-size: 12px; }
+
+            /* Footer */
+            .footer { padding: 24px 16px; font-size: 11px; margin-top: 24px; }
+
+            /* Grids */
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 12px; }
+            .mb-20 { margin-bottom: 12px; }
         }
 
         /* ── CARDS ── */
@@ -471,9 +516,14 @@
 <!-- ═══════════════ HEADER ═══════════════ -->
 <div class="header">
     <div class="header-inner">
-        <div class="header-badge">128 respostas coletadas</div>
-        <h1>📊 Pesquisa de Satisfação — Luciana Vistos 2025</h1>
-        <p>Análise completa das respostas coletadas entre 28/01/2026 e 20/02/2026</p>
+        <div class="header-top-row">
+            <div class="header-top-row-left">
+                <div class="header-badge">128 respostas coletadas</div>
+                <h1>📊 Pesquisa de Satisfação — Luciana Vistos 2025</h1>
+                <p>Análise completa das respostas coletadas entre 28/01/2026 e 20/02/2026</p>
+            </div>
+            <button class="theme-toggle" id="themeToggle" title="Alternar Modo Claro/Escuro">🌙</button>
+        </div>
         <div class="header-stats">
             <div class="header-stat">
                 <div class="header-stat-value">98.4%</div>
@@ -500,7 +550,6 @@
     <button class="nav-tab" data-tab="details">Análise Detalhada</button>
     <button class="nav-tab" data-tab="feedback">Feedback dos Clientes</button>
     <button class="nav-tab" data-tab="insights">Insights & Recomendações</button>
-    <button class="theme-toggle" id="themeToggle" title="Alternar Modo Claro/Escuro">🌙</button>
 </div>
 
 <div class="container">
