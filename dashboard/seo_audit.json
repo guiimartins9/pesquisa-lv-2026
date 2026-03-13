@@ -1,0 +1,104 @@
+[
+  {
+    "url": "https://lucianavistos.com.br",
+    "status_code": 200,
+    "title": "Links | Luciana Vistos",
+    "title_length": 22,
+    "meta_description": "Com mais de 6 anos de mercado, mais de 4000 clientes satisfeitos e uma taxa de aprovação dos vistos acima de 98%, aqui na Luciana Vistos nosso objetivo é",
+    "meta_description_length": 153,
+    "h1_count": 0,
+    "h1s": [],
+    "word_count": 469
+  },
+  {
+    "url": "https://lucianavistos.com.br/entrevista-perfeita",
+    "status_code": 403,
+    "title": "403 Forbidden",
+    "title_length": 13,
+    "meta_description": "",
+    "meta_description_length": 0,
+    "h1_count": 1,
+    "h1s": [
+      "403"
+    ],
+    "word_count": 44
+  },
+  {
+    "url": "https://lucianavistos.com.br/como-preencher-ds",
+    "status_code": 520,
+    "title": "lucianavistos.com.br | 520: Web server is returning an unknown error",
+    "title_length": 68,
+    "meta_description": "",
+    "meta_description_length": 0,
+    "h1_count": 1,
+    "h1s": [
+      "Web server is returning an unknown errorError code 520"
+    ],
+    "word_count": 169
+  },
+  {
+    "url": "https://lucianavistos.com.br/visto-mexicano",
+    "status_code": 403,
+    "title": "403 Forbidden",
+    "title_length": 13,
+    "meta_description": "",
+    "meta_description_length": 0,
+    "h1_count": 1,
+    "h1s": [
+      "403"
+    ],
+    "word_count": 44
+  },
+  {
+    "url": "https://lucianavistos.com.br/visto-americano",
+    "status_code": 403,
+    "title": "403 Forbidden",
+    "title_length": 13,
+    "meta_description": "",
+    "meta_description_length": 0,
+    "h1_count": 1,
+    "h1s": [
+      "403"
+    ],
+    "word_count": 44
+  },
+  {
+    "url": "https://lucianavistos.com.br/guia-visto-aprovado",
+    "status_code": 520,
+    "title": "lucianavistos.com.br | 520: Web server is returning an unknown error",
+    "title_length": 68,
+    "meta_description": "",
+    "meta_description_length": 0,
+    "h1_count": 1,
+    "h1s": [
+      "Web server is returning an unknown errorError code 520"
+    ],
+    "word_count": 169
+  },
+  {
+    "url": "https://lucianavistos.com.br/checklist",
+    "status_code": 403,
+    "title": "403 Forbidden",
+    "title_length": 13,
+    "meta_description": "",
+    "meta_description_length": 0,
+    "h1_count": 1,
+    "h1s": [
+      "403"
+    ],
+    "word_count": 44
+  },
+  {
+    "url": "https://quiz.lucianavistos.com.br",
+    "status_code": 403,
+    "title": "403 Forbidden",
+    "title_length": 13,
+    "meta_description": "",
+    "meta_description_length": 0,
+    "h1_count": 1,
+    "h1s": [
+      "403"
+    ],
+    "word_count": 44
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "siteUrl": "sc-domain:lucianavistos.com.br",
+  "startDate": "2026-02-13",
+  "endDate": "2026-03-13",
+  "dimension": "page",
+  "data": [
+    {
+      "key": "https://lucianavistos.com.br/",
+      "clicks": 5,
+      "impressions": 115,
+      "ctr": 4.35,
+      "position": 4.32
+    },
+    {
+      "key": "https://lucianavistos.com.br/como-preencher-ds/",
+      "clicks": 2,
+      "impressions": 85,
+      "ctr": 2.35,
+      "position": 32.91
+    },
+    {
+      "key": "https://lucianavistos.com.br/visto-mexicano/",
+      "clicks": 2,
+      "impressions": 28,
+      "ctr": 7.14,
+      "position": 2.68
+    },
+    {
+      "key": "https://lucianavistos.com.br/entrevista-perfeita/",
+      "clicks": 1,
+      "impressions": 27,
+      "ctr": 3.7,
+      "position": 6.19
+    },
+    {
+      "key": "https://lucianavistos.com.br/visto-americano/",
+      "clicks": 1,
+      "impressions": 39,
+      "ctr": 2.56,
+      "position": 5.97
+    },
+    {
+      "key": "https://quiz.lucianavistos.com.br/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 9.2
+    }
+  ]
+}

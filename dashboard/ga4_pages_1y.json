@@ -1,0 +1,229 @@
+{
+  "propertyId": "431438891",
+  "startDate": "365daysAgo",
+  "endDate": "today",
+  "data": [
+    {
+      "pagePath": "/visto-americano/",
+      "sessions": "12062",
+      "engagedSessions": "5520",
+      "engagementRate": "0.45763554966008951"
+    },
+    {
+      "pagePath": "/",
+      "sessions": "11706",
+      "engagedSessions": "7408",
+      "engagementRate": "0.63283786092602079"
+    },
+    {
+      "pagePath": "/bio/",
+      "sessions": "3168",
+      "engagedSessions": "572",
+      "engagementRate": "0.18055555555555555"
+    },
+    {
+      "pagePath": "/entrevista-perfeita/",
+      "sessions": "1608",
+      "engagedSessions": "589",
+      "engagementRate": "0.36629353233830847"
+    },
+    {
+      "pagePath": "/guia-visto-aprovado/",
+      "sessions": "1429",
+      "engagedSessions": "511",
+      "engagementRate": "0.357592722183345"
+    },
+    {
+      "pagePath": "/como-preencher-ds/",
+      "sessions": "1354",
+      "engagedSessions": "564",
+      "engagementRate": "0.41654357459379615"
+    },
+    {
+      "pagePath": "/checklist/",
+      "sessions": "478",
+      "engagedSessions": "205",
+      "engagementRate": "0.42887029288702927"
+    },
+    {
+      "pagePath": "/visto-mexicano/",
+      "sessions": "277",
+      "engagedSessions": "181",
+      "engagementRate": "0.6534296028880866"
+    },
+    {
+      "pagePath": "/J100697396T",
+      "sessions": "243",
+      "engagedSessions": "134",
+      "engagementRate": "0.551440329218107"
+    },
+    {
+      "pagePath": "/B100697563H",
+      "sessions": "170",
+      "engagedSessions": "131",
+      "engagementRate": "0.77058823529411768"
+    },
+    {
+      "pagePath": "/thanks",
+      "sessions": "151",
+      "engagedSessions": "149",
+      "engagementRate": "0.98675496688741726"
+    },
+    {
+      "pagePath": "/Q100697745O",
+      "sessions": "111",
+      "engagedSessions": "88",
+      "engagementRate": "0.7927927927927928"
+    },
+    {
+      "pagePath": "/assessoria-completa-oto-ds/",
+      "sessions": "95",
+      "engagedSessions": "78",
+      "engagementRate": "0.82105263157894737"
+    },
+    {
+      "pagePath": "/guia-oto-checklist/",
+      "sessions": "93",
+      "engagedSessions": "89",
+      "engagementRate": "0.956989247311828"
+    },
+    {
+      "pagePath": "/J100697963A",
+      "sessions": "92",
+      "engagedSessions": "59",
+      "engagementRate": "0.64130434782608692"
+    },
+    {
+      "pagePath": "/bio",
+      "sessions": "46",
+      "engagedSessions": "14",
+      "engagementRate": "0.30434782608695654"
+    },
+    {
+      "pagePath": "/assessoria-completa-ds/",
+      "sessions": "41",
+      "engagedSessions": "38",
+      "engagementRate": "0.926829268292683"
+    },
+    {
+      "pagePath": "/assessoria-completa-oto/",
+      "sessions": "36",
+      "engagedSessions": "31",
+      "engagementRate": "0.86111111111111116"
+    },
+    {
+      "pagePath": "/guia-do-visto-aprovado/",
+      "sessions": "32",
+      "engagedSessions": "28",
+      "engagementRate": "0.875"
+    },
+    {
+      "pagePath": "/pesquisa/",
+      "sessions": "23",
+      "engagedSessions": "12",
+      "engagementRate": "0.52173913043478259"
+    },
+    {
+      "pagePath": "/obrigado-ebook/",
+      "sessions": "22",
+      "engagedSessions": "20",
+      "engagementRate": "0.90909090909090906"
+    },
+    {
+      "pagePath": "/obrigado-checklist/",
+      "sessions": "15",
+      "engagedSessions": "15",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/a-entrevista-perfeita/",
+      "sessions": "13",
+      "engagedSessions": "13",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/pt-br/marketplace/produtos/assessoria-completa-para-visto-americano-nos-da-luciana-vistos-cuidando-de-tudo-na-sua-solicitacao-de-visto-americano/J100697963A",
+      "sessions": "12",
+      "engagedSessions": "10",
+      "engagementRate": "0.83333333333333337"
+    },
+    {
+      "pagePath": "/reuniao-ds/",
+      "sessions": "7",
+      "engagedSessions": "7",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/aclk",
+      "sessions": "5",
+      "engagedSessions": "3",
+      "engagementRate": "0.6"
+    },
+    {
+      "pagePath": "/pagead/aclk",
+      "sessions": "5",
+      "engagedSessions": "1",
+      "engagementRate": "0.2"
+    },
+    {
+      "pagePath": "/pt-br/marketplace/produtos/reuniao-preparatoria-para-o-visto-americano/J100964265F",
+      "sessions": "5",
+      "engagedSessions": "5",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/aguardando-pagamento/",
+      "sessions": "2",
+      "engagedSessions": "2",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/assessoria-completa-oto-reun/",
+      "sessions": "2",
+      "engagedSessions": "2",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/download-checklist/",
+      "sessions": "2",
+      "engagedSessions": "1",
+      "engagementRate": "0.5"
+    },
+    {
+      "pagePath": "/obrigado-assessoria/",
+      "sessions": "2",
+      "engagedSessions": "2",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/obrigado-reuniao/",
+      "sessions": "2",
+      "engagedSessions": "2",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/guia-do-visto-aprovado-luciana-vistos/",
+      "sessions": "1",
+      "engagedSessions": "1",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/oto-guia-visto-aprovado/",
+      "sessions": "1",
+      "engagedSessions": "1",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/vistoamericano",
+      "sessions": "1",
+      "engagedSessions": "1",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/wp-admin/post",
+      "sessions": "1",
+      "engagedSessions": "1",
+      "engagementRate": "1"
+    }
+  ]
+}

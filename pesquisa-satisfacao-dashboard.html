@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Satisfação — Luciana Vistos 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --bg-primary: #0f0f14;
+            --bg-secondary: #16161e;
+            --bg-card: #1c1c27;
+            --bg-card-hover: #22222f;
+            --border: #2a2a3a;
+            --text-primary: #f0f0f5;
+            --text-secondary: #9898ab;
+            --text-muted: #6b6b80;
+            --accent-green: #22c55e;
+            --accent-green-dim: rgba(34,197,94,.12);
+            --accent-blue: #3b82f6;
+            --accent-blue-dim: rgba(59,130,246,.12);
+            --accent-purple: #a855f7;
+            --accent-purple-dim: rgba(168,85,247,.12);
+            --accent-amber: #f59e0b;
+            --accent-amber-dim: rgba(245,158,11,.12);
+            --accent-red: #ef4444;
+            --accent-red-dim: rgba(239,68,68,.12);
+            --accent-cyan: #06b6d4;
+            --accent-cyan-dim: rgba(6,182,212,.12);
+            --accent-rose: #f43f5e;
+            --accent-rose-dim: rgba(244,63,94,.12);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --shadow: 0 4px 30px rgba(0,0,0,.4);
+            --header-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            --header-glow: radial-gradient(circle, rgba(59,130,246,.08) 0%, transparent 70%);
+            --bar-track-bg: rgba(255,255,255,.06);
+            --insight-bg: linear-gradient(135deg, rgba(59,130,246,.06), rgba(168,85,247,.06));
+            --insight-border: rgba(59,130,246,.15);
+        }
+
+        :root.light-mode {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f5f9;
+            --border: #e2e8f0;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --accent-green: #16a34a;
+            --accent-green-dim: rgba(22,163,74,.12);
+            --accent-blue: #2563eb;
+            --accent-blue-dim: rgba(37,99,235,.12);
+            --accent-purple: #9333ea;
+            --accent-purple-dim: rgba(147,51,234,.12);
+            --accent-amber: #d97706;
+            --accent-amber-dim: rgba(217,119,6,.12);
+            --accent-red: #dc2626;
+            --accent-red-dim: rgba(220,38,38,.12);
+            --accent-cyan: #0891b2;
+            --accent-cyan-dim: rgba(8,145,178,.12);
+            --accent-rose: #e11d48;
+            --accent-rose-dim: rgba(225,29,72,.12);
+            --shadow: 0 4px 20px rgba(0,0,0,.04);
+            --header-gradient: linear-gradient(135deg, #f0fdfa 0%, #eff6ff 50%, #e0e7ff 100%);
+            --header-glow: radial-gradient(circle, rgba(37,99,235,.06) 0%, transparent 70%);
+            --bar-track-bg: rgba(0,0,0,.06);
+            --insight-bg: linear-gradient(135deg, rgba(37,99,235,.04), rgba(147,51,234,.04));
+            --insight-border: rgba(37,99,235,.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            background: var(--header-gradient);
+            border-bottom: 1px solid var(--border);
+            padding: 40px 0 32px;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.4s ease;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: var(--header-glow);
+            pointer-events: none;
+            transition: background 0.4s ease;
+        }
+        .header-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-green-dim);
+            color: var(--accent-green);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            letter-spacing: .3px;
+        }
+        .header-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .4; }
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -.5px;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+        .header p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        .header-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 20px;
+        }
+        .header-stat {
+            text-align: left;
+        }
+        .header-stat-value {
+            font-size: 26px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            font-weight: 600;
+        }
+
+        /* ── NAV TABS ── */
+        .nav-tabs {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 16px 24px 0;
+            display: flex;
+            gap: 4px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        .nav-tab {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: none;
+            border: none;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all .2s;
+            font-family: inherit;
+        }
+        .nav-tab:hover { color: var(--text-secondary); }
+        .nav-tab.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--accent-blue);
+        }
+        .theme-toggle {
+            position: absolute;
+            right: 24px;
+            bottom: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all .2s;
+            font-size: 16px;
+        }
+        .theme-toggle:hover {
+            background: var(--bg-card-hover);
+            transform: scale(1.05);
+        }
+
+        /* ── LAYOUT ── */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+        .section { display: none; }
+        .section.active { display: block; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+        @media (max-width: 900px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .header-stats { flex-wrap: wrap; gap: 16px; }
+        }
+
+        /* ── CARDS ── */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            transition: all .25s;
+        }
+        .card:hover {
+            background: var(--bg-card-hover);
+            box-shadow: var(--shadow);
+        }
+        .card-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            margin-bottom: 12px;
+        }
+        .card-value {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        .card-sub {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* ── KPI CARD ── */
+        .kpi-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .kpi-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        /* ── CHART ── */
+        .chart-wrap {
+            position: relative;
+            width: 100%;
+        }
+        .chart-wrap canvas {
+            max-height: 300px;
+        }
+
+        /* ── BARS ── */
+        .bar-group { margin-bottom: 14px; }
+        .bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        .bar-label span:first-child { color: var(--text-primary); font-weight: 500; }
+        .bar-label span:last-child { color: var(--text-secondary); }
+        .bar-track {
+            height: 8px;
+            background: var(--bar-track-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: background 0.4s ease;
+        }
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s cubic-bezier(.33,1,.68,1);
+        }
+
+        /* ── TESTIMONIALS ── */
+        .testimonial {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            position: relative;
+            transition: all .2s;
+        }
+        .testimonial:hover {
+            border-color: rgba(59,130,246,.3);
+            background: rgba(59,130,246,.04);
+        }
+        .testimonial-text {
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-style: italic;
+        }
+        .testimonial-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+        .testimonial-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 6px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+        .tag-positive { background: var(--accent-green-dim); color: var(--accent-green); }
+        .tag-negative { background: var(--accent-red-dim); color: var(--accent-red); }
+        .tag-constructive { background: var(--accent-amber-dim); color: var(--accent-amber); }
+
+        /* ── INSIGHT BOX ── */
+        .insight-box {
+            background: var(--insight-bg);
+            border: 1px solid var(--insight-border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            transition: all 0.4s ease;
+        }
+        .insight-box h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .insight-box p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ── NPS ── */
+        .nps-gauge {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .nps-score {
+            font-size: 72px;
+            font-weight: 900;
+            letter-spacing: -3px;
+        }
+        .nps-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-top: -4px;
+        }
+        .nps-scale {
+            display: flex;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0 8px;
+        }
+        .nps-scale div { height: 100%; }
+
+        /* ── SECTION TITLE ── */
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-top: 8px;
+        }
+
+        /* ── ANIMATION ── */
+        .fade-in {
+            animation: fadeIn .4s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── SCROLL ── */
+        .scroll-area {
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+        .scroll-area::-webkit-scrollbar { width: 4px; }
+        .scroll-area::-webkit-scrollbar-track { background: transparent; }
+        .scroll-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+        /* ── FOOTER ── */
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: var(--text-muted);
+            font-size: 12px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        .mb-20 { margin-bottom: 20px; }
+        .mt-24 { margin-top: 24px; }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<div class="header">
+    <div class="header-inner">
+        <div class="header-badge">128 respostas coletadas</div>
+        <h1>📊 Pesquisa de Satisfação — Luciana Vistos 2025</h1>
+        <p>Análise completa das respostas coletadas entre 28/01/2026 e 20/02/2026</p>
+        <div class="header-stats">
+            <div class="header-stat">
+                <div class="header-stat-value">98.4%</div>
+                <div class="header-stat-label">Taxa de Recomendação</div>
+            </div>
+            <div class="header-stat">
+                <div class="header-stat-value">96.9%</div>
+                <div class="header-stat-label">Avaliação "Ótimo"</div>
+            </div>
+            <div class="header-stat">
+                <div class="header-stat-value">90.6%</div>
+                <div class="header-stat-label">Superior à Concorrência</div>
+            </div>
+            <div class="header-stat">
+                <div class="header-stat-value">97.7%</div>
+                <div class="header-stat-label">Assessoria Importante</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="nav-tabs">
+    <button class="nav-tab active" data-tab="overview">Visão Geral</button>
+    <button class="nav-tab" data-tab="details">Análise Detalhada</button>
+    <button class="nav-tab" data-tab="feedback">Feedback dos Clientes</button>
+    <button class="nav-tab" data-tab="insights">Insights & Recomendações</button>
+    <button class="theme-toggle" id="themeToggle" title="Alternar Modo Claro/Escuro">🌙</button>
+</div>
+
+<div class="container">
+
+<!-- ═══════════════ TAB 1 — OVERVIEW ═══════════════ -->
+<div class="section active fade-in" id="overview">
+
+    <!-- KPIs -->
+    <div class="grid-4 mb-20">
+        <div class="card">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:var(--accent-green-dim)">🎯</div>
+                <div>
+                    <div class="card-title">NPS Score</div>
+                    <div class="card-value" style="color:var(--accent-green)">96.9</div>
+                    <div class="card-sub">Classe Mundial (>70)</div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:var(--accent-blue-dim)">⭐</div>
+                <div>
+                    <div class="card-title">Qualidade do Suporte</div>
+                    <div class="card-value" style="color:var(--accent-blue)">91.4%</div>
+                    <div class="card-sub">Avaliaram como "Excelente"</div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:var(--accent-purple-dim)">📣</div>
+                <div>
+                    <div class="card-title">Fonte #1 de Captação</div>
+                    <div class="card-value" style="color:var(--accent-purple)">88.3%</div>
+                    <div class="card-sub">Via Indicação</div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:var(--accent-amber-dim)">🛡️</div>
+                <div>
+                    <div class="card-title">Risco Percebido</div>
+                    <div class="card-value" style="color:var(--accent-amber)">45.3%</div>
+                    <div class="card-sub">Ficariam inseguros sozinhos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="grid-2 mb-20">
+        <div class="card">
+            <div class="card-title">📊 Fonte de Captação dos Clientes</div>
+            <div class="chart-wrap">
+                <canvas id="chartSource"></canvas>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">⭐ Comprometimento e Profissionalismo da Equipe</div>
+            <div class="chart-wrap">
+                <canvas id="chartTeam"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-2 mb-20">
+        <div class="card">
+            <div class="card-title">🏅 Qualidade do Suporte</div>
+            <div class="chart-wrap">
+                <canvas id="chartSupport"></canvas>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">🆚 Comparação com Concorrentes</div>
+            <div class="chart-wrap">
+                <canvas id="chartCompetitor"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- NPS Gauge -->
+    <div class="card mb-20">
+        <div class="card-title">📈 NPS — Net Promoter Score</div>
+        <div class="nps-gauge">
+            <div class="nps-score" style="color:var(--accent-green)">96.9</div>
+            <div class="nps-label" style="color:var(--accent-green)">Zona de Excelência</div>
+            <div class="nps-scale">
+                <div style="width:30%;background:var(--accent-red)" title="Detratores (0-6)"></div>
+                <div style="width:20%;background:var(--accent-amber)" title="Neutros (7-8)"></div>
+                <div style="width:50%;background:var(--accent-green)" title="Promotores (9-10)"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted)">
+                <span>Detratores: 1.6% (2)</span>
+                <span>Neutros: 0% (0)</span>
+                <span>Promotores: 98.4% (126)</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ═══════════════ TAB 2 — DETAILS ═══════════════ -->
+<div class="section" id="details">
+
+    <h2 class="section-title">Análise Detalhada por Pergunta</h2>
+
+    <!-- Q1: Fonte -->
+    <div class="card mb-20">
+        <div class="card-title">P1. Como você ficou sabendo da Luciana Vistos?</div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Indicação</span><span>113 (88.3%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:88.3%;background:var(--accent-purple)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Google</span><span>7 (5.5%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:5.5%;background:var(--accent-blue)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Instagram</span><span>5 (3.9%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:3.9%;background:var(--accent-rose)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Outros (Agência, Amigos)</span><span>3 (2.3%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:2.3%;background:var(--accent-amber)"></div></div>
+        </div>
+    </div>
+
+    <!-- Q2: Importância -->
+    <div class="card mb-20">
+        <div class="card-title">P2. A assistência de uma assessoria foi importante para a aprovação do seu visto?</div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Sim</span><span>125 (97.7%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:97.7%;background:var(--accent-green)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Não</span><span>3 (2.3%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:2.3%;background:var(--accent-red)"></div></div>
+        </div>
+    </div>
+
+    <!-- Q3: Equipe -->
+    <div class="card mb-20">
+        <div class="card-title">P3. Como você avalia o comprometimento e profissionalismo da equipe?</div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Ótimo</span><span>124 (96.9%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:96.9%;background:var(--accent-green)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Bom</span><span>3 (2.3%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:2.3%;background:var(--accent-blue)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Médio</span><span>0 (0%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:0%;background:var(--accent-amber)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Ruim</span><span>1 (0.8%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:0.8%;background:var(--accent-red)"></div></div>
+        </div>
+    </div>
+
+    <!-- Q4: Qualidade Suporte -->
+    <div class="card mb-20">
+        <div class="card-title">P4. Qual a qualidade do suporte fornecido durante o processo?</div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Excelente</span><span>117 (91.4%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:91.4%;background:var(--accent-green)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Muito bom</span><span>6 (4.7%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:4.7%;background:var(--accent-blue)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Bom</span><span>4 (3.1%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:3.1%;background:var(--accent-amber)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Razoável ou inferior</span><span>1 (0.8%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:0.8%;background:var(--accent-red)"></div></div>
+        </div>
+    </div>
+
+    <!-- Q5: Diferenciais -->
+    <div class="card mb-20">
+        <div class="card-title">P5. O que mais fez diferença no serviço?</div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Suporte atencioso e humanizado</span><span>93 menções</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:72.7%;background:var(--accent-green)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Agilidade no atendimento</span><span>96 menções</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:75%;background:var(--accent-blue)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Organização dos documentos</span><span>88 menções</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:68.8%;background:var(--accent-purple)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Preparação p/ entrevista consular</span><span>82 menções</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:64.1%;background:var(--accent-cyan)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Comunicação transparente</span><span>75 menções</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:58.6%;background:var(--accent-amber)"></div></div>
+        </div>
+    </div>
+
+    <!-- Q6: Risco -->
+    <div class="card mb-20">
+        <div class="card-title">P6. Sem a assessoria, o que teria acontecido?</div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Teria demorado muito mais</span><span>68 (53.1%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:53.1%;background:var(--accent-blue)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Teria ficado inseguro(a)</span><span>58 (45.3%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:45.3%;background:var(--accent-amber)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Provavelmente teria sido negado</span><span>27 (21.1%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:21.1%;background:var(--accent-red)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Não sei</span><span>14 (10.9%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:10.9%;background:var(--text-muted)"></div></div>
+        </div>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:10px">* Pergunta de múltipla escolha — totais acima de 100%</p>
+    </div>
+
+    <!-- Q7: Recomendação -->
+    <div class="card mb-20">
+        <div class="card-title">P7. Você recomendaria a Luciana Vistos para amigos/familiares?</div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Sim, recomendaria</span><span>126 (98.4%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:98.4%;background:var(--accent-green)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Não recomendaria</span><span>2 (1.6%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:1.6%;background:var(--accent-red)"></div></div>
+        </div>
+    </div>
+
+    <!-- Q8: Concorrentes -->
+    <div class="card mb-20">
+        <div class="card-title">P8. Como avalia a Luciana Vistos vs. concorrentes?</div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Superior</span><span>116 (90.6%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:90.6%;background:var(--accent-green)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Igual</span><span>9 (7.0%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:7%;background:var(--accent-blue)"></div></div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label"><span>Inferior</span><span>3 (2.3%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:2.3%;background:var(--accent-red)"></div></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ═══════════════ TAB 3 — FEEDBACK ═══════════════ -->
+<div class="section" id="feedback">
+
+    <h2 class="section-title">💬 Feedback dos Clientes</h2>
+
+    <div class="grid-2">
+        <!-- POSITIVOS -->
+        <div>
+            <div class="card-title" style="margin-bottom:16px">✅ Destaques Positivos</div>
+            <div class="scroll-area">
+
+                <div class="testimonial">
+                    <span class="testimonial-tag tag-positive">Destaque</span>
+                    <p class="testimonial-text">"O trabalho da Luciana é maravilhoso. Eu e minha família já utilizamos várias vezes e sempre foi tudo muito organizado, rápido e sem comparação com outros serviços. A sessão de preparação para a entrevista foi fundamental para a obtenção de visto para meu filho. Super indico."</p>
+                    <div class="testimonial-meta">Via Indicação • 29/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <span class="testimonial-tag tag-positive">Destaque</span>
+                    <p class="testimonial-text">"O atendimento, alto nível de profissionalismo, conhecimento, atenção, agilidade e o carinho que trata o cliente mantendo-o a todo momento informado e atenta a cada etapa do processo é algo que me surpreendeu. Parabéns Luciana!"</p>
+                    <div class="testimonial-meta">Via Indicação • 29/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <span class="testimonial-tag tag-positive">Destaque</span>
+                    <p class="testimonial-text">"Uma profissional excepcional, atenciosa, competente, gentil, amável e muito prestativa em todo andamento do processo! Eficiente em todo momento e prestativa. Fica aqui nossos PARABÉNS LUCIANA e nosso carinho, meu e de minha filha!"</p>
+                    <div class="testimonial-meta">Via Indicação • 30/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <span class="testimonial-tag tag-positive">Destaque</span>
+                    <p class="testimonial-text">"Não poderíamos ter escolhido melhor. Fomos muito bem atendidos, nos trouxe segurança e confiança no processo. Só a agradecer. Parabéns!!!!"</p>
+                    <div class="testimonial-meta">Via Indicação • 29/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <span class="testimonial-tag tag-positive">Destaque</span>
+                    <p class="testimonial-text">"Atendimento excelente, humanizado e extremamente profissional. Equipe se esforçou muito para agilizar tudo e nos deixar tranquilos para a entrevista."</p>
+                    <div class="testimonial-meta">Via Indicação • 28/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <span class="testimonial-tag tag-positive">Destaque</span>
+                    <p class="testimonial-text">"Minha opinião é que: se não tem habilidades para fazer esses documentos, que procure a Luciana, profissional e tudo com conhecimento de causa. Orientações úteis para todas etapas do processo! Obrigada!"</p>
+                    <div class="testimonial-meta">Via Indicação • 28/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"Fui prontamente atendida com todos os detalhes e valores claros. A simulação de entrevista me deixou muito segura para fazer a do consulado, tenho indicado para todos que me perguntam. Obrigada Lu!"</p>
+                    <div class="testimonial-meta">Via Instagram • 30/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"Já utilizei os serviços da Luciana Vistos em mais de uma oportunidade. Acompanhamento e orientação perfeita. Sem dúvida recomendo a outras pessoas que precisam tirar seus vistos."</p>
+                    <div class="testimonial-meta">Via Instagram • 28/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"Foi ágil, segura e eficaz, garantindo a segurança durante a entrevista."</p>
+                    <div class="testimonial-meta">Via Indicação • 28/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"Foi tudo excelente. Quantas vezes precisar do serviço dela com certeza irei contratá-la, parabéns pelo trabalho impecável."</p>
+                    <div class="testimonial-meta">Via Indicação • 28/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"Ótimo atendimento, retorno rápido, valor justo."</p>
+                    <div class="testimonial-meta">Via Indicação • 28/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"Adorei seu serviço e já indiquei para 2 pessoas! Sempre que posso, recomendo! Obrigada! Isadora"</p>
+                    <div class="testimonial-meta">Via Indicação • 29/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"A Luciana foi muito prestativa e compreensiva, me explicou tudo certinho e tenho certeza que nessa última fase vai dar tudo certo com o visto e graças a ela. Obrigada 🙏🏻"</p>
+                    <div class="testimonial-meta">Via Indicação • 28/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"Serviço ótimo, com muita presteza e dedicação. Obrigada Luciana!"</p>
+                    <div class="testimonial-meta">Via Indicação • 10/02/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"Como já disse o atendimento foi maravilhoso."</p>
+                    <div class="testimonial-meta">Via Indicação • 05/02/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"Sabemos que não existe perfeição, mas no nosso caso a prestação do serviço foi excelente."</p>
+                    <div class="testimonial-meta">Via Indicação • 01/02/2026</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- NEGATIVOS / CONSTRUTIVOS -->
+        <div>
+            <div class="card-title" style="margin-bottom:16px">⚠️ Feedback Construtivo & Críticas</div>
+            <div class="scroll-area">
+
+                <div class="testimonial">
+                    <span class="testimonial-tag tag-negative">Crítico</span>
+                    <p class="testimonial-text">"Após a negativa do meu visto enviei mensagens, inclusive perguntando sobre uma nova tentativa e nunca mais obtive retorno, fazendo assim com que eu tentasse novamente com outra assessoria."</p>
+                    <div class="testimonial-meta">Via Indicação • 29/01/2026 • Avaliou como Ruim/Inferior</div>
+                </div>
+
+                <div class="testimonial">
+                    <span class="testimonial-tag tag-negative">Crítico</span>
+                    <p class="testimonial-text">"Mensagens mais cordiais, mais atenção aos detalhes enviados, como dados pessoais, nomes, estado civil que precisaram ser corrigidos para não haver equívocos de compatibilidade. Clareza quanto ao pagamento que é feito em dólar americano, mas tem taxas de valor fixo em outras moedas, de outros países."</p>
+                    <div class="testimonial-meta">Via Indicação • 29/01/2026 • Não recomendaria</div>
+                </div>
+
+                <div class="testimonial">
+                    <span class="testimonial-tag tag-constructive">Construtivo</span>
+                    <p class="testimonial-text">"Achei o preço um pouquinho salgado."</p>
+                    <div class="testimonial-meta">Via Indicação • 28/01/2026</div>
+                </div>
+
+                <div class="testimonial">
+                    <span class="testimonial-tag tag-constructive">Construtivo</span>
+                    <p class="testimonial-text">"Na resposta anterior, coloquei que a qualidade do serviço é igual ao de outra assessoria, mas nunca usei outra. Sugiro que coloquem mais esta opção de resposta, 'nunca usei outra' ou 'não se aplica'."</p>
+                    <div class="testimonial-meta">Via Indicação • 28/01/2026 • Sugestão para o formulário</div>
+                </div>
+
+                <div class="testimonial">
+                    <span class="testimonial-tag tag-constructive">Construtivo</span>
+                    <p class="testimonial-text">"Em relação aos concorrentes coloquei igual pois não procurei outras assessorias pra comparar."</p>
+                    <div class="testimonial-meta">Via Instagram • 29/01/2026 • Sugestão para o formulário</div>
+                </div>
+
+            </div>
+
+            <div style="margin-top:24px">
+                <div class="card-title" style="margin-bottom:16px">📊 Análise do Feedback Aberto</div>
+                <div class="card" style="padding:20px">
+                    <div class="bar-group">
+                        <div class="bar-label"><span>Deixaram comentário positivo</span><span>~55 respostas</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:43%;background:var(--accent-green)"></div></div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label"><span>Sem comentário (satisfeitos)</span><span>~68 respostas</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:53%;background:var(--text-muted)"></div></div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label"><span>Feedback construtivo</span><span>5 respostas</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:3.9%;background:var(--accent-amber)"></div></div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label"><span>Crítica negativa real</span><span>2 respostas</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:1.6%;background:var(--accent-red)"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ═══════════════ TAB 4 — INSIGHTS ═══════════════ -->
+<div class="section" id="insights">
+
+    <h2 class="section-title">🧠 Insights & Recomendações Estratégicas</h2>
+
+    <div class="insight-box">
+        <h3>💎 1. Motor de Crescimento: Indicação é Rei</h3>
+        <p><strong>88.3%</strong> dos clientes chegaram por indicação. Isso representa um motor de crescimento orgânico extremamente poderoso. <strong>Recomendação:</strong> Implementar um programa de indicação formalizado com incentivos (desconto, bônus, ou benefício exclusivo) para transformar clientes satisfeitos em embaixadores ativos da marca. Cada cliente satisfeito representa, potencialmente, 2-3 novos clientes.</p>
+    </div>
+
+    <div class="insight-box">
+        <h3>🛡️ 2. Mensagem Central de Marketing: Segurança</h3>
+        <p><strong>45.3%</strong> disseram que ficariam inseguros sem a assessoria, e <strong>21.1%</strong> acreditam que teriam sido negados. A combinação "insegurança + risco de negação" afeta <strong>66.4%</strong> dos clientes. <strong>Recomendação:</strong> Usar a narrativa de segurança e tranquilidade como pilar central de toda comunicação. Frases como "Tenha a certeza de um processo seguro" e depoimentos reais sobre a preparação para entrevista são armas de conversão poderosas.</p>
+    </div>
+
+    <div class="insight-box">
+        <h3>❤️ 3. Diferencial Competitivo: Humanização</h3>
+        <p>O <strong>suporte humanizado</strong> aparece em <strong>72.7%</strong> das respostas como diferencial e é a palavra mais repetida nos depoimentos abertos. Isso coloca a Luciana Vistos em uma categoria premium — não vende apenas um serviço burocrático, mas uma <strong>experiência de acompanhamento</strong>. <strong>Recomendação:</strong> Proteger esse atributo e nunca automatizar demais o contato com o cliente. A humanização é a vantagem competitiva mais difícil de copiar.</p>
+    </div>
+
+    <div class="insight-box">
+        <h3>⚡ 4. Top 5 Diferenciais Percebidos</h3>
+        <p>Em ordem de importância: (1) <strong>Agilidade</strong> — 75%, (2) <strong>Suporte Humanizado</strong> — 72.7%, (3) <strong>Organização Documental</strong> — 68.8%, (4) <strong>Preparação para Entrevista</strong> — 64.1%, (5) <strong>Comunicação Transparente</strong> — 58.6%. <strong>Recomendação:</strong> Estes 5 pilares devem ser destaque em todos os materiais de marketing, landing pages e scripts de venda. São os argumentos que vendem o serviço.</p>
+    </div>
+
+    <div class="insight-box">
+        <h3>💰 5. Preço Justificado pelo Valor Percebido</h3>
+        <p>Apenas <strong>1 em 128</strong> clientes mencionou preço como ponto negativo ("um pouquinho salgado"), e mesmo esse avaliou o serviço positivamente. Com <strong>90.6%</strong> considerando o serviço <strong>superior à concorrência</strong>, o preço premium está completamente justificado. <strong>Recomendação:</strong> Não reduzir preços. Ao contrário, considerar reajustes graduais acompanhados de comunicação de valor.</p>
+    </div>
+
+    <div class="insight-box">
+        <h3>🚨 6. Atenção: Pós-Venda em Caso de Negativa</h3>
+        <p>A crítica mais grave veio de um cliente cujo visto foi negado e não recebeu retorno nas mensagens. Isso gerou avaliação <strong>Ruim/Inferior</strong> e é o único caso de impacto reputacional negativo. <strong>Recomendação URGENTE:</strong> Criar um protocolo formal de acompanhamento pós-negativa, incluindo: contato proativo em até 48h, orientação sobre nova tentativa, e oferta de desconto para reprocessamento. Um cliente com visto negado precisa de MAIS atenção, não menos.</p>
+    </div>
+
+    <div class="insight-box">
+        <h3>📝 7. Melhoria no Formulário de Pesquisa</h3>
+        <p>Dois clientes apontaram que falta uma opção "Nunca usei outra assessoria" na pergunta de comparação com concorrentes. Marcaram "Igual" por falta de alternativa melhor. <strong>Recomendação:</strong> Adicionar a opção "Não tenho referência" na P8. Isso corrigirá os 7% que marcaram "Igual" sem base real de comparação, potencialmente elevando o índice de "Superior" para <strong>95%+</strong>.</p>
+    </div>
+
+    <div class="insight-box">
+        <h3>📱 8. Oportunidade Digital: Instagram & Google</h3>
+        <p>Google (<strong>5.5%</strong>) e Instagram (<strong>3.9%</strong>) são minoritários mas representam clientes que buscaram ativamente. <strong>Recomendação:</strong> Investir em SEO local (Google Meu Negócio, palavras-chave como "assessoria visto americano") e conteúdo no Instagram (reels com dicas, stories com aprovações) para capturar a demanda digital sem depender exclusivamente de indicações.</p>
+    </div>
+
+    <div class="card mt-24" style="background:linear-gradient(135deg, rgba(34,197,94,.08), rgba(59,130,246,.08)); border-color:rgba(34,197,94,.2)">
+        <div class="card-title" style="color:var(--accent-green)">📋 Resumo Executivo</div>
+        <p style="font-size:14px;line-height:1.8;color:var(--text-secondary)">
+            A Luciana Vistos opera com <strong style="color:var(--text-primary)">métricas de excelência</strong> em todos os indicadores: NPS de 96.9 (classe mundial), 98.4% de recomendação, 96.9% de avaliação máxima em profissionalismo e 90.6% de superioridade percebida vs. concorrentes. O negócio cresce organicamente via boca-a-boca (88.3%), indicando forte satisfação real. As prioridades estratégicas são: <strong style="color:var(--text-primary)">(1)</strong> formalizar programa de indicação, <strong style="color:var(--text-primary)">(2)</strong> criar protocolo de pós-negativa, <strong style="color:var(--text-primary)">(3)</strong> expandir presença digital, e <strong style="color:var(--text-primary)">(4)</strong> usar depoimentos reais como prova social em toda comunicação.
+        </p>
+    </div>
+
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+    Dashboard gerado automaticamente • Dados: Google Forms — Pesquisa de Satisfação Luciana Vistos 2025 • 128 respostas • Período: 28/01 a 20/02/2026
+</div>
+
+<script>
+// ── TAB NAVIGATION ──
+document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        tab.classList.add('active');
+        const target = document.getElementById(tab.dataset.tab);
+        target.classList.add('active', 'fade-in');
+    });
+});
+
+// ── THEME TOGGLE ──
+const themeToggle = document.getElementById('themeToggle');
+const body = document.documentElement;
+let isLightMode = true;
+
+themeToggle.addEventListener('click', () => {
+    isLightMode = !isLightMode;
+    if (isLightMode) {
+        body.classList.add('light-mode');
+        themeToggle.textContent = '🌙';
+        updateChartsTheme(true);
+    } else {
+        body.classList.remove('light-mode');
+        themeToggle.textContent = '☀️';
+        updateChartsTheme(false);
+    }
+});
+
+function updateChartsTheme(light) {
+    Chart.defaults.color = light ? '#64748b' : '#9898ab';
+    Chart.defaults.borderColor = light ? 'rgba(0,0,0,.05)' : 'rgba(255,255,255,.05)';
+    for (let id in Chart.instances) {
+        Chart.instances[id].update();
+    }
+}
+
+// ── CHART DEFAULTS ──
+Chart.defaults.color = '#64748b';
+Chart.defaults.borderColor = 'rgba(0,0,0,.05)';
+Chart.defaults.font.family = 'Inter';
+
+const chartOpts = (type) => ({
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+        legend: {
+            position: type === 'doughnut' ? 'bottom' : 'top',
+            labels: { padding: 16, usePointStyle: true, pointStyleWidth: 10, font: { size: 12 } }
+        }
+    }
+});
+
+// ── SOURCE CHART ──
+new Chart(document.getElementById('chartSource'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Indicação', 'Google', 'Instagram', 'Outros'],
+        datasets: [{
+            data: [113, 7, 5, 3],
+            backgroundColor: ['#a855f7', '#3b82f6', '#f43f5e', '#f59e0b'],
+            borderWidth: 0,
+            hoverOffset: 8
+        }]
+    },
+    options: {
+        ...chartOpts('doughnut'),
+        cutout: '65%'
+    }
+});
+
+// ── TEAM CHART ──
+new Chart(document.getElementById('chartTeam'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Ótimo', 'Bom', 'Médio', 'Ruim'],
+        datasets: [{
+            data: [124, 3, 0, 1],
+            backgroundColor: ['#22c55e', '#3b82f6', '#f59e0b', '#ef4444'],
+            borderWidth: 0,
+            hoverOffset: 8
+        }]
+    },
+    options: {
+        ...chartOpts('doughnut'),
+        cutout: '65%'
+    }
+});
+
+// ── SUPPORT CHART ──
+new Chart(document.getElementById('chartSupport'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Excelente', 'Muito bom', 'Bom', 'Razoável/Inferior'],
+        datasets: [{
+            data: [117, 6, 4, 1],
+            backgroundColor: ['#22c55e', '#3b82f6', '#f59e0b', '#ef4444'],
+            borderWidth: 0,
+            hoverOffset: 8
+        }]
+    },
+    options: {
+        ...chartOpts('doughnut'),
+        cutout: '65%'
+    }
+});
+
+// ── COMPETITOR CHART ──
+new Chart(document.getElementById('chartCompetitor'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Superior', 'Igual', 'Inferior'],
+        datasets: [{
+            data: [116, 9, 3],
+            backgroundColor: ['#22c55e', '#3b82f6', '#ef4444'],
+            borderWidth: 0,
+            hoverOffset: 8
+        }]
+    },
+    options: {
+        ...chartOpts('doughnut'),
+        cutout: '65%'
+    }
+});
+</script>
+
+</body>
+</html>

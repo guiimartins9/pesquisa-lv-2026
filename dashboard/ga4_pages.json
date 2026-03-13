@@ -1,0 +1,97 @@
+{
+  "propertyId": "431438891",
+  "startDate": "30daysAgo",
+  "endDate": "today",
+  "data": [
+    {
+      "pagePath": "/",
+      "sessions": "1006",
+      "engagedSessions": "763",
+      "engagementRate": "0.75844930417495027"
+    },
+    {
+      "pagePath": "/visto-americano/",
+      "sessions": "377",
+      "engagedSessions": "218",
+      "engagementRate": "0.57824933687002655"
+    },
+    {
+      "pagePath": "/entrevista-perfeita/",
+      "sessions": "207",
+      "engagedSessions": "75",
+      "engagementRate": "0.36231884057971014"
+    },
+    {
+      "pagePath": "/como-preencher-ds/",
+      "sessions": "170",
+      "engagedSessions": "81",
+      "engagementRate": "0.47647058823529409"
+    },
+    {
+      "pagePath": "/visto-mexicano/",
+      "sessions": "87",
+      "engagedSessions": "55",
+      "engagementRate": "0.632183908045977"
+    },
+    {
+      "pagePath": "/Q100697745O",
+      "sessions": "21",
+      "engagedSessions": "11",
+      "engagementRate": "0.52380952380952384"
+    },
+    {
+      "pagePath": "/B100697563H",
+      "sessions": "17",
+      "engagedSessions": "10",
+      "engagementRate": "0.58823529411764708"
+    },
+    {
+      "pagePath": "/J100697396T",
+      "sessions": "17",
+      "engagedSessions": "8",
+      "engagementRate": "0.47058823529411764"
+    },
+    {
+      "pagePath": "/guia-visto-aprovado/",
+      "sessions": "13",
+      "engagedSessions": "12",
+      "engagementRate": "0.92307692307692313"
+    },
+    {
+      "pagePath": "/thanks",
+      "sessions": "13",
+      "engagedSessions": "13",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/J100697963A",
+      "sessions": "11",
+      "engagedSessions": "10",
+      "engagementRate": "0.90909090909090906"
+    },
+    {
+      "pagePath": "/assessoria-completa-oto-ds/",
+      "sessions": "1",
+      "engagedSessions": "1",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/checklist/",
+      "sessions": "1",
+      "engagedSessions": "1",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/pt-br/marketplace/produtos/assessoria-completa-para-visto-americano-nos-da-luciana-vistos-cuidando-de-tudo-na-sua-solicitacao-de-visto-americano/J100697963A",
+      "sessions": "1",
+      "engagedSessions": "1",
+      "engagementRate": "1"
+    },
+    {
+      "pagePath": "/pt-br/marketplace/produtos/reuniao-preparatoria-para-o-visto-americano/J100964265F",
+      "sessions": "1",
+      "engagedSessions": "1",
+      "engagementRate": "1"
+    }
+  ]
+}
